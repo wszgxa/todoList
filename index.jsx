@@ -6,5 +6,5 @@ var TodoList = require('./components/TodoList');
 
 ReactDOM.render(
     <TodoList />,
-    document.querySelector('body')
+    document.querySelector('#container')
 );

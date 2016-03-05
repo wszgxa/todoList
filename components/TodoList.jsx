@@ -4,9 +4,12 @@ var ListContent = require('./ListControl');
 
 var TodoListControl = React.createClass({
     displayName: 'TodoListControl',
+
+    ,
+
     render: function () {
         return (
-            <div className="container">
+            <div className="wrapper">
                 <ListTitle />
                 <ListContent />
             </div>
