@@ -1,0 +1,66 @@
+// variable
+@bg_out_color : #ececfb;
+@bg_in_color: #fff;
+
+html, body {
+    width: 100%;
+    font-size: 14px;
+    padding: 0;
+    background-color: @bg_out_color;
+}
+body {
+    box-sizing: border-box;
+    width: 100%;
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+    word-wrap: break-word;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-touch-callout: none;
+    color: #333;
+    -webkit-text-size-adjust: none; /* 禁止文字缩放 */
+    -webkit-user-select: none; /* 禁止选取文字/图片(iOS) */
+    display: -webkit-box;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+}
+.container {
+    width: 100%;
+    background-color: @bg_out_color;
+}
+
+/* =grid
+ -------------------------------------------------------------------- */
+.box {
+    display: box;
+    display: -webkit-box;
+}
+.flex1 {
+    box-flex: 1;
+    -webkit-box-flex: 1;
+}
+// header
+
+header {
+    width: 100%;
+    color: #fff;
+    font-size: 18px;
+    height: 55px;
+    line-height: 55px;
+    text-align: center;
+    background-color: #000;
+    background:-webkit-gradient(linear ,10% 10%，100% 100%，color-stop(0.14,rgb(255,0,0)),color-stop(0.5,rgb(255,255,0)),color-stop(1,rgb(0,0,255)) )
+    h2 {
+        font-size: 20px;
+        margin: 0;
+        font-weight: bold;
+    }
+}
+
+
+
+
+
+
+
+
+
