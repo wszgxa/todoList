@@ -5,8 +5,6 @@ var ListContent = require('./ListControl');
 var TodoListControl = React.createClass({
     displayName: 'TodoListControl',
 
-    ,
-
     render: function () {
         return (
             <div className="wrapper">
