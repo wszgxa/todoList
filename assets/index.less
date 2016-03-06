@@ -2,6 +2,10 @@
 @bg_out_color : #ececfb;
 @bg_in_color: #fff;
 
+@bg_mask_color: rgba(125, 125, 125, 0.5);
+@bg_mask_content_color: #fff;
+
+@border_shadow: #b3b3b3;
 html, body {
     width: 100%;
     font-size: 14px;
@@ -31,7 +35,7 @@ body {
 /* =grid
  -------------------------------------------------------------------- */
 .box {
-    display: box;
+    display: box;s
     display: -webkit-box;
 }
 .flex1 {
@@ -42,15 +46,52 @@ body {
 
 header {
     width: 100%;
-    color: #fff;
+    color: #000;
     font-size: 18px;
+    text-align: center;
     height: 55px;
     line-height: 55px;
-    text-align: center;
-    background:-webkit-linear-gradient(left, #8E59F9, #07DCBE);
+    box-shadow: #888;
+    background:-webkit-linear-gradient(left, #b6eaf5, #6fd6c8);
     h2 {
         font-size: 24px;
         margin: 0;
         font-weight: bold;
     }
+}
+.setTitleWrap {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: @bg_mask_color;
+    .inner {
+        width: 80%;
+        background-color: @bg_mask_content_color;
+        margin: 50px auto;
+        border-radius: 3px;
+        text-align: center;
+        div {
+            color: #292929;
+            height: 40px;
+            line-height: 40px;
+        }
+        .title {
+            text-align: left;
+            background-color: #e6e6e6;
+            text-indent: 5px;
+            border-top-right-radius: 3px;
+            border-top-left-radius: 3px;
+        }
+    }
+    input {
+        outline: none;
+        border: 1px solid @border_shadow;
+        width: 80%;
+        border-radius: 3px;
+        padding: 5px;
+        font-size: 16px;
+    }
+
 }
