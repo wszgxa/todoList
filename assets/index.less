@@ -2,15 +2,16 @@
 @bg_out_color : #ececfb;
 @bg_in_color: #fff;
 
-@bg_mask_color: rgba(125, 125, 125, 0.5);
+@bg_mask_color: rgba(0,0,0,0.3);
 @bg_mask_content_color: #fff;
 
-@border_shadow: #b3b3b3;
+@border_shadow: #f4f4f4;
 html, body {
     width: 100%;
     font-size: 14px;
     padding: 0;
     background-color: @bg_out_color;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 body {
     box-sizing: border-box;
@@ -30,6 +31,34 @@ body {
 .container {
     width: 100%;
     background-color: @bg_out_color;
+}
+
+// common
+.btn {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
 }
 
 /* =grid
@@ -67,31 +96,37 @@ header {
     left: 0;
     background-color: @bg_mask_color;
     .inner {
-        width: 80%;
         background-color: @bg_mask_content_color;
-        margin: 50px auto;
-        border-radius: 3px;
+        width: 94%;
+        margin: 10px auto;
         text-align: center;
         div {
             color: #292929;
-            height: 40px;
-            line-height: 40px;
+            height: 50px;
+            line-height: 50px;
         }
         .title {
             text-align: left;
-            background-color: #e6e6e6;
-            text-indent: 5px;
-            border-top-right-radius: 3px;
-            border-top-left-radius: 3px;
+            font-weight: 500;
+            text-indent: 15px;
+            border-bottom: 1px solid @border_shadow;
+        }
+        .sure {
+            text-align: center;
+            border-top: 1px solid @border_shadow;
+        }
+        .content {
+            margin: 5px 15px;
         }
     }
     input {
         outline: none;
-        border: 1px solid @border_shadow;
-        width: 80%;
+        border: 1px solid #959595;
+        width: 96%;
         border-radius: 3px;
         padding: 5px;
-        font-size: 16px;
+        font-size: 18px;
+        box-shadow: none;
     }
 
 }

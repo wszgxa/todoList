@@ -1,5 +1,6 @@
 var React = require('react');
 var TitleStore = require('../stores/TitleStore');
+var InitTitleActions = require('../actions/InitTitleActions');
 
 var ListTitle = React.createClass({
     displayName: 'ListTitle',
@@ -8,6 +9,31 @@ var ListTitle = React.createClass({
             title: TitleStore.getTitle()
         };
     },
+    _initTitle: function () {
+        this.setState({
+            title: TitleStore.getTitle()
+        });
+    },
+    checkoutTitle: function () {
+        var title = document.getElementById('title').value;
+        if (title.length===0 ||title.length>8) {
+            return false;
+        } else {
+            return title;
+        }
+    },
+    initTitle: function () {
+        var title = this.checkoutTitle();
+        if (title) {
+            InitTitleActions.initTitle(title)
+        } else {
+            alert("请输入长度在8个字符内的昵称");
+        }
+    },
+    componentDidMount: function() {
+        TitleStore.addInitTitleListener(this._initTitle);
+    },
+    
     render: function(argument) {
         if (this.state.title) {
             return (
@@ -21,10 +47,12 @@ var ListTitle = React.createClass({
                     <h2>Todo List</h2>
                     <div id="setTitleWrap" className="setTitleWrap">
                         <div className="inner">
-                            <div className="header">请填写昵称</div>
-                            <input type="text" id="inittitle" />
-                            <div>
-                                <button className="sure">✅确定</button>
+                            <div className="title">请填写昵称</div>
+                            <div className="content">
+                                <input type="text" id="title" />
+                            </div>
+                            <div className="sure">
+                                <button className="btn btn-primary" onClick={this.initTitle}>确定</button>
                             </div>
                         </div>
                     </div>
