@@ -6,6 +6,9 @@
 @bg_mask_content_color: #fff;
 
 @border_shadow: #f4f4f4;
+@btn_color: #fd7647;
+
+@font-white: #FFF;
 html, body {
     width: 100%;
     font-size: 14px;
@@ -128,5 +131,35 @@ header {
         font-size: 18px;
         box-shadow: none;
     }
+}
 
+// add item
+
+.addItem {
+    position: fixed;
+    display: block;
+    bottom: 0;
+    text-align: center;
+    padding: 5px 0 8px;
+    width: 100%;
+    background-color:  @bg_in_color;
+    a {
+        display: inline-block;
+        outline: 0;
+        border: 0;
+        color: @font-white;
+        width: 90%;
+        padding: 8px;
+        font-size: 18px;
+        font-weight: 800;
+        border-radius: 50px;
+        box-shadow: 0 1px 0 #fd9d7c inset, 0 0.32rem 0 #D6664B;
+        display: inline-block;
+        background-color: @btn_color;
+    }
+    a:active {
+        position: relative;
+        top: 3px;
+        box-shadow: 0 3px 0 #e76336;
+    }
 }
