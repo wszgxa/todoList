@@ -1,6 +1,6 @@
 var React = require('react');
 var ListTitle = require('./ListTitleControl');
-var ListContent = require('./ListControl');
+var ListContent = require('./ListContentControl');
 
 var TodoListControl = React.createClass({
     displayName: 'TodoListControl',
