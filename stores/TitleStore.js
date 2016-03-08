@@ -23,8 +23,6 @@ var TitleStore = assign({}, EventEmitter.prototype, {
   addInitTitleListener: function (callback) {
     this.on("initTitle", callback);
   }
-
-
 });
 
 module.exports = TitleStore;

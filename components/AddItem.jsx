@@ -6,7 +6,7 @@ var AddItem = React.createClass({
     render: function () {
         return (
             <div className="addItem">
-                <a herf="#">Add</a>
+                <a herf="#" onClick={this.props.onClick}>Add</a>
             </div>
         );    
     }
