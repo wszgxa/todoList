@@ -45,7 +45,7 @@ var ListTitle = React.createClass({
             return (
                 <header>
                     <h2>Todo List</h2>
-                    <div id="setTitleWrap" className="setTitleWrap">
+                    <div id="setTitleWrap" className="inputWrap">
                         <div className="inner">
                             <div className="title">请填写昵称</div>
                             <div className="content">

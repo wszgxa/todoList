@@ -9,9 +9,13 @@
 @btn_color: #fd7647;
 
 @font-white: #FFF;
+* {
+    box-sizing: border-box;
+}
 html, body {
     width: 100%;
     font-size: 14px;
+    line-height: 1.42857143;
     padding: 0;
     background-color: @bg_out_color;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -94,27 +98,25 @@ header {
         font-weight: bold;
     }
 }
-.setTitleWrap {
+.inputWrap {
     position: fixed;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
+    z-index: 3;
     background-color: @bg_mask_color;
     .inner {
         background-color: @bg_mask_content_color;
-        width: 94%;
-        margin: 10px auto;
-        text-align: center;
+        margin: 10px;
         div {
             color: #292929;
-            height: 50px;
-            line-height: 50px;
+            padding: 15px;
+            line-height: 25px;
         }
         .title {
             text-align: left;
             font-weight: 500;
-            text-indent: 15px;
             border-bottom: 1px solid @border_shadow;
         }
         .sure {
@@ -122,15 +124,18 @@ header {
             border-top: 1px solid @border_shadow;
         }
         .content {
-            margin: 5px 15px;
+            position: relative;
         }
     }
     input {
         outline: none;
+        display: block;
         border: 1px solid #959595;
-        width: 96%;
+        box-sizing: border-box;
+        width: 100%;
+        font-size: 18px;
+        padding: 6px 12px;
         border-radius: 3px;
-        padding: 5px;
         font-size: 18px;
         box-shadow: none;
     }
