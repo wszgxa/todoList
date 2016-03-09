@@ -15,7 +15,6 @@ var TitleStore = assign({}, EventEmitter.prototype, {
   setTitleHandler: function (text) {
     this.title = text;
     window.localStorage.ListTitle = text;
-    this.emitInit();
   },
   emitInit: function () {
     this.emit('initTitle');

@@ -70,6 +70,17 @@ body {
     background-color: #337ab7;
     border-color: #2e6da4;
 }
+.btn:hover {
+    outline: none;
+    text-decoration: none;
+    color: #333;
+}
+.btn-primary:hover {
+    color: #fff;
+    background-color: #286090;
+    border-color: #204d74;
+}
+
 
 /* =grid
  -------------------------------------------------------------------- */
@@ -115,6 +126,7 @@ header {
             line-height: 25px;
         }
         .title {
+            font-size: 16px;
             text-align: left;
             font-weight: 500;
             border-bottom: 1px solid @border_shadow;
@@ -122,6 +134,12 @@ header {
         .sure {
             text-align: center;
             border-top: 1px solid @border_shadow;
+        }
+        .sure.s {
+            text-align: right;
+        }
+        .return {
+            float: left;
         }
         .content {
             position: relative;
@@ -138,6 +156,14 @@ header {
         border-radius: 3px;
         font-size: 18px;
         box-shadow: none;
+    }
+    textarea {
+        width: 100%;
+        font-size: 14px;
+        line-height: 16px;
+        outline: none;
+        border-radius: 3px;
+        border: 1px solid #959595;
     }
 }
 

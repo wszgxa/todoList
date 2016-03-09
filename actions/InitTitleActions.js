@@ -7,8 +7,7 @@ var InitTitleActions = {
       actionType: 'INIT_TITLE',
       text: text
     });
-  },
-
+  }
 };
 
 module.exports = InitTitleActions;
