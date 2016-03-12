@@ -4,8 +4,10 @@ var AddItem = require("./AddItem");
 var AddItemContent = require("./AddItemContent");
 
 var StatusStore = require("../stores/StatusStore");
-
 var StatusChangeActions = require("../actions/StatusChangeActions");
+
+var ItemsStore = require("../stores/ItemsStore");
+var ItemsActions = require("../actions/itemsActions");
 
 var ListTitle = React.createClass({
     displayName: 'ListTitle',
@@ -35,12 +37,20 @@ var ListTitle = React.createClass({
             StatusChangeActions.statusChange("hide");
         }
     },
+    addItem: function () {
+        var content = document.getElementById('itemContent');
+        if (content.value.length === 0) {
+            alert("hehe");
+        } else {
+            ItemsActions.addItem(content.value);
+        }
+    },
     render: function () {
         return (
             <div className="content">
                 <List />
                 <AddItem onClick={this.statusChange} />
-                <AddItemContent reClick={this.statusChange} AICstatus={this.state.AddItemContentStatus} />
+                <AddItemContent addClick={this.addItem} reClick={this.statusChange} AICstatus={this.state.AddItemContentStatus} />
             </div>
         );    
     }

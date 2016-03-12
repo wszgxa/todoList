@@ -9,11 +9,11 @@ var AddItemContent = React.createClass({
                 <div className="inner">
                     <div className="title">添加项目</div>
                     <div className="content">
-                    <textarea rows="3"></textarea>
+                    <textarea id="itemContent" rows="3"></textarea>
                     </div>
                     <div className="sure s">
                         <button className="btn return" onClick={this.props.reClick} data-name="RETURN">返回</button>
-                        <button className="btn btn-primary ensure">确定</button>
+                        <button className="btn btn-primary ensure" onClick={this.props.addClick}>确定</button>
                     </div>
                 </div>
             </div>

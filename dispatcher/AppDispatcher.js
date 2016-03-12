@@ -3,16 +3,25 @@ var AppDispatcher = new Dispatcher();
 
 var TitleStore = require('../stores/TitleStore');
 var StatusStore = require('../stores/StatusStore');
+var ItemsStore = require('../stores/ItemsStore');
 
 AppDispatcher.register(function (action) {
   switch(action.actionType) {
+    // title 
     case 'INIT_TITLE':
         TitleStore.setTitleHandler(action.text);
         TitleStore.emitInit();
         break;
+
+    // status
     case 'STATUS_CHANGE':
         StatusStore.setStatusHandler(action.text);
         StatusStore.emitStatusChange();
+        break;
+
+    // items    
+    case 'ADD_ITEM':
+        ItemsStore.addItem(action.text);
         break;
     default:
       // no op
