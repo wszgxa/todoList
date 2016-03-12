@@ -1,5 +1,5 @@
 var React = require('react');
-var ListControl = require("./ListControl");
+var List = require("./List");
 var AddItem = require("./AddItem");
 var AddItemContent = require("./AddItemContent");
 
@@ -54,18 +54,20 @@ var ListTitle = React.createClass({
         }
     },
     itemStatusChange: function (e) {
-        console.log(e);
+        var id = e.target.parentNode.dataset.item;
+        ItemsActions.changeItemStatus(id);
     },
     changeItems: function (e) {
         console.log(e);
     },
-    removeItems: function (e) {
-        console.log(e);
+    removeItem: function (e) {
+        var id = e.target.parentNode.dataset.item;
+        ItemsActions.removeItem(id);
     },
     render: function () {
         return (
             <div className="content">
-                <ListControl items={this.state.items} />
+                <List itemStatusChange={this.itemStatusChange} removeItem={this.removeItem} items={this.state.items} />
                 <AddItem onClick={this.statusChange} />
                 <AddItemContent addClick={this.addItem} reClick={this.statusChange} AICstatus={this.state.AddItemContentStatus} />
             </div>

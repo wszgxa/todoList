@@ -51,9 +51,32 @@ var ItemsStore = assign({}, EventEmitter.prototype, {
     };
     this.items.idMax++;
     this.items.itemsList.push(item);
-    console.log(this.items);
+    window.localStorage.itemsList = JSON.stringify(this.items);
+  },
+  removeItem: function (id) {
+    var itemsCashe = [];
+    this.items.itemsList.forEach(function (vl, ky) {
+        if (vl.id != id) {
+            itemsCashe.push(vl);
+        }
+    });
+    this.items.itemsList = itemsCashe;
+    window.localStorage.itemsList = JSON.stringify(this.items);
+  },
+  changeItemStatus: function (id) {
+    var itemsCashe = [];
+    this.items.itemsList.forEach(function (vl, ky) {
+        if (vl.id != id) {
+            itemsCashe.push(vl);
+        } else {
+            itemsCashe.push({id:id,content:vl.content,status:!vl.status});
+        }
+    });
+    this.items.itemsList = itemsCashe;
     window.localStorage.itemsList = JSON.stringify(this.items);
   }
+
+
 });
 
 module.exports = ItemsStore;

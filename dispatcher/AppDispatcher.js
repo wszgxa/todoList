@@ -22,7 +22,17 @@ AppDispatcher.register(function (action) {
     // items    
     case 'ADD_ITEM':
         ItemsStore.addItem(action.text);
+        ItemsStore.emitListChange();
         break;
+    case 'REMOVE_ITEM':
+        ItemsStore.removeItem(action.id);
+        ItemsStore.emitListChange();
+        break;
+    case 'CHANGE_ITEM_STATUS':
+        ItemsStore.changeItemStatus(action.id);
+        ItemsStore.emitListChange();
+        break;
+
     default:
       // no op
   }
