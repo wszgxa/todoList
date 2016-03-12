@@ -21,6 +21,12 @@ var ItemsStore = assign({}, EventEmitter.prototype, {
   getIdMax: function () {
     return this.items.idMax;
   },
+  emitListChange: function () {
+    this.emit('itemsChange');
+  },
+  addListChangeListener: function (callback) {
+    this.on("itemsChange", callback);
+  },
   _initItems: function (Ob) {
     this.items.idMax = Ob.idMax;
     this.items.itemsList = Ob.itemsList;
@@ -31,7 +37,7 @@ var ItemsStore = assign({}, EventEmitter.prototype, {
         if (vl.id !== tag) {
             itemsCashe.push(vl);
         } else {
-            itemsCashe.push({id:tag,content:text});
+            itemsCashe.push({id:tag,content:text,status:vl.status});
         }
     });
     this.items.itemsList = itemsCashe;
@@ -40,7 +46,8 @@ var ItemsStore = assign({}, EventEmitter.prototype, {
   addItem: function (text) {
     var item = {
         id: this.items.idMax,
-        content: text
+        content: text,
+        done: false
     };
     this.items.idMax++;
     this.items.itemsList.push(item);

@@ -44,6 +44,17 @@ body {
 .hide {
     display: none;
 }
+.notice {
+    position: fixed;
+    top: 0;
+    z-index: 3;
+    width: 100%;
+    padding: 11px 0;
+    text-align: center;
+    color: #fff;
+    background-color: red;
+    background-color: rgba(205, 47, 47, .94);
+}
 .btn {
     display: inline-block;
     padding: 6px 12px;
@@ -95,6 +106,10 @@ body {
 // header
 
 header {
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    left: 0;
     width: 100%;
     color: #000;
     font-size: 18px;
@@ -173,6 +188,7 @@ header {
     position: fixed;
     display: block;
     bottom: 0;
+    z-index: 3;
     text-align: center;
     padding: 5px 0 8px;
     width: 100%;
@@ -197,3 +213,68 @@ header {
         box-shadow: 0 3px 0 #e76336;
     }
 }
+
+// items
+.item-wrap {
+    margin-top: 45px;
+    margin-bottom: 60px;
+    overflow: auto;
+}
+.item {
+    margin: 10px auto;   
+    background-color: @bg_in_color; 
+    box-shadow: 1px 1px 10px #C8C8C8;
+    padding: 10px;
+    font-size: 18px;
+    span {
+        padding-left: 5px;
+    }
+    a {
+        position: relative;
+        z-index: 1;
+        display: block;
+        margin-top: 3px;
+        margin-right: 5px;
+        float: right; 
+        width: 20px;
+        height: 20px;
+        background-color: #C1C1C1;
+        border-radius: 10px;
+    }
+    a:hover {
+        background-color: #262626;
+    }
+    a::before {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 12px;
+        margin-top: 9px;
+        margin-left: 3px;
+        border: 1px solid #D6D6D6;
+        transform:rotate(135deg);
+        -webkit-transform:rotate(135deg);
+    }
+    a::after {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 12px;
+        margin-top: 9px;
+        margin-left: 3px;
+        border: 1px solid #D6D6D6;
+        transform:rotate(45deg);
+        -webkit-transform:rotate(45deg);
+    }
+    .edit {
+        display: none;
+    }
+}
+
+
+
+
+
+
+
+

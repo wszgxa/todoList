@@ -10,6 +10,8 @@ var TodoListControl = React.createClass({
             <div className="wrapper">
                 <ListTitle />
                 <ListContent />
+                <aside id="notice" class="notice hide"></aside>
+
             </div>
         );
     }
