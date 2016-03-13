@@ -33,6 +33,9 @@ var ListTitle = React.createClass({
         this.setState({
             AddItemContentStatus: StatusStore.getStatus()
         });
+        var $itemContent = document.getElementById('itemContent');
+            $itemContent.focus();
+
     },
     statusChange: function (e) {
         // 根据点击目标的data-name来触发actions

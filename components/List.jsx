@@ -16,10 +16,17 @@ var List = React.createClass({
     handleTouchEnd:function () {
         clearTimeout(timer);
     },
-    handleDoubleBclick: function (e) {
-        var tag = e.target.parentNode;
+    dbChange: function (tag) {
         Tool.changeClass(tag,"","editing");
-        e.target.nextSibling.focus();
+        tag.lastChild.focus();
+    },
+    handleDoubleBclick: function (e) {
+        e.stopPropagation();
+        if (e.target.nodeName === "LABEL") {
+            this.dbChange(e.target.parentNode.parentNode);
+        } else if (e.target.nodeName === "DIV") {} {
+            this.dbChange(e.target.parentNode);
+        }        
     },
     handleChangeBlur: function (e) {
         var tag = e.target.parentNode;
@@ -38,7 +45,7 @@ var List = React.createClass({
                     <div className="item" key={i}>
                         <div onTouchStart={that.handleTouchStart} onTouchEnd={that.handleTouchEnd} onDoubleClick={that.handleDoubleBclick} data-item={index.id} className="view">
                             <input type="checkbox" checked={index.done} onClick={that.props.itemStatusChange}/>
-                            <span>{index.content}</span>
+                            <label>{index.content}</label>
                             <a onClick={that.props.removeItem}></a>
                         </div>
                         <input onKeyPress={that.handleChangeKeyPress} onBlur={that.handleChangeBlur} onChange={that.props.changeItem} data-item={index.id} className="edit" value={index.content} type="text"/>
