@@ -32,7 +32,10 @@ AppDispatcher.register(function (action) {
         ItemsStore.changeItemStatus(action.id);
         ItemsStore.emitListChange();
         break;
-
+    case 'CHANGE_ITEM':
+        ItemsStore.changeItem(action.id,action.text);
+        ItemsStore.emitListChange();
+        break;
     default:
       // no op
   }

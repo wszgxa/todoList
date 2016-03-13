@@ -31,18 +31,6 @@ var ItemsStore = assign({}, EventEmitter.prototype, {
     this.items.idMax = Ob.idMax;
     this.items.itemsList = Ob.itemsList;
   },
-  changeItem: function (tag, text) {
-    var itemsCashe = [];
-    this.items.itemsList.forEach(function (vl, ky) {
-        if (vl.id !== tag) {
-            itemsCashe.push(vl);
-        } else {
-            itemsCashe.push({id:tag,content:text,status:vl.status});
-        }
-    });
-    this.items.itemsList = itemsCashe;
-    window.localStorage.itemsList = JSON.stringify(this.items);
-  },
   addItem: function (text) {
     var item = {
         id: this.items.idMax,
@@ -74,7 +62,19 @@ var ItemsStore = assign({}, EventEmitter.prototype, {
     });
     this.items.itemsList = itemsCashe;
     window.localStorage.itemsList = JSON.stringify(this.items);
-  }
+  },
+  changeItem: function (id,text) {
+    var itemsCashe = [];
+    this.items.itemsList.forEach(function (vl, ky) {
+        if (vl.id != id) {
+            itemsCashe.push(vl);
+        } else {
+            itemsCashe.push({id:id,content:text,status:vl.status});
+        }
+    });
+    this.items.itemsList = itemsCashe;
+    window.localStorage.itemsList = JSON.stringify(this.items);
+  },
 
 
 });

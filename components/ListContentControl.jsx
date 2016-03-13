@@ -33,6 +33,9 @@ var ListTitle = React.createClass({
         this.setState({
             AddItemContentStatus: StatusStore.getStatus()
         });
+        var $itemContent = document.getElementById('itemContent');
+            $itemContent.focus();
+
     },
     statusChange: function (e) {
         // 根据点击目标的data-name来触发actions
@@ -57,19 +60,26 @@ var ListTitle = React.createClass({
         var id = e.target.parentNode.dataset.item;
         ItemsActions.changeItemStatus(id);
     },
-    changeItems: function (e) {
-        console.log(e);
+    changeItem: function (e) {
+        var text = e.target.value,
+            id = e.target.dataset.item;
+        ItemsActions.changeItem(id,text);
     },
     removeItem: function (e) {
         var id = e.target.parentNode.dataset.item;
         ItemsActions.removeItem(id);
     },
+    handleKeyPress: function (e) {
+        if (e.keyIdentifier === "Enter"|| e.charCode === 13) {
+            this.addItem();
+        }
+    },
     render: function () {
         return (
             <div className="content">
-                <List itemStatusChange={this.itemStatusChange} removeItem={this.removeItem} items={this.state.items} />
+                <List changeItem={this.changeItem} itemStatusChange={this.itemStatusChange} removeItem={this.removeItem} items={this.state.items} />
                 <AddItem onClick={this.statusChange} />
-                <AddItemContent addClick={this.addItem} reClick={this.statusChange} AICstatus={this.state.AddItemContentStatus} />
+                <AddItemContent handleKeyPress={this.handleKeyPress} addClick={this.addItem} reClick={this.statusChange} AICstatus={this.state.AddItemContentStatus} />
             </div>
         );    
     }

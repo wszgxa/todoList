@@ -40,13 +40,11 @@ var Tool = {
 
             if (s) arr.push(klass);
         });
-
         aList.forEach(function (alass) {
             if (arr.indexOf(alass) === -1) {
-                arr = arr.push(alass);
+                arr.push(alass);
             }
         });
-
         $a.setAttribute('class', arr.join(" "));
 
         return $a;
