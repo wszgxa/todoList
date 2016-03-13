@@ -20,6 +20,13 @@ var itemsActions = {
       id: id
     });
   },
+  changeItem: function (id,text) {
+    AppDispatcher.dispatch({
+      actionType: 'CHANGE_ITEM',
+      id:id,
+      text: text
+    });
+  },
 };
 
 module.exports = itemsActions;

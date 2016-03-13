@@ -240,33 +240,48 @@ header {
         height: 20px;
         background-color: #C1C1C1;
         border-radius: 10px;
-    }
-    a:hover {
-        background-color: #262626;
-    }
-    a::before {
-        content: "";
-        display: block;
-        position: absolute;
-        width: 12px;
-        margin-top: 9px;
-        margin-left: 3px;
-        border: 1px solid #D6D6D6;
-        transform:rotate(135deg);
-        -webkit-transform:rotate(135deg);
-    }
-    a::after {
-        content: "";
-        display: block;
-        position: absolute;
-        width: 12px;
-        margin-top: 9px;
-        margin-left: 3px;
-        border: 1px solid #D6D6D6;
-        transform:rotate(45deg);
-        -webkit-transform:rotate(45deg);
+        &:hover {
+            background-color: #262626;
+        }
+        &::before {
+            content: "";
+            display: block;
+            position: absolute;
+            width: 12px;
+            margin-top: 9px;
+            margin-left: 3px;
+            border: 1px solid #D6D6D6;
+            transform:rotate(135deg);
+            -webkit-transform:rotate(135deg);
+        }
+        &::after {
+            content: "";
+            display: block;
+            position: absolute;
+            width: 12px;
+            margin-top: 9px;
+            margin-left: 3px;
+            border: 1px solid #D6D6D6;
+            transform:rotate(45deg);
+            -webkit-transform:rotate(45deg);
+        }
     }
     .edit {
+        display: none;
+    }
+}
+.editing {
+    .edit {
+        display: block;
+        width: 100%;
+        display: block;
+        width: 100%;
+        padding: 4px;
+        outline: none;
+        border: 1px solid #B8B8B8;
+        border-radius: 2px;
+    }
+    .view {
         display: none;
     }
 }

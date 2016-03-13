@@ -30,6 +30,11 @@ var ListTitle = React.createClass({
             alert("请输入长度在8个字符内的昵称");
         }
     },
+    handleKeyPress: function (e) {
+        if (e.keyIdentifier === "Enter"|| e.charCode === 13) {
+            this.initTitle();
+        }
+    },
     componentDidMount: function() {
         TitleStore.addInitTitleListener(this._initTitle);
     },
@@ -49,7 +54,7 @@ var ListTitle = React.createClass({
                         <div className="inner">
                             <div className="title">请填写昵称</div>
                             <div className="content">
-                                <input type="text" id="title" />
+                                <input type="text" onKeyPress={this.handleKeyPress} id="title" />
                             </div>
                             <div className="sure">
                                 <button className="btn btn-primary" onClick={this.initTitle}>确定</button>
