@@ -3,18 +3,16 @@ var ListTitle = require('./ListTitleControl');
 var ListContent = require('./ListContentControl');
 
 var TodoListControl = React.createClass({
-    displayName: 'TodoListControl',
-
-    render: function () {
-        return (
-            <div className="wrapper">
-                <ListTitle />
-                <ListContent />
-                <aside id="notice" className="notice hide"></aside>
-
-            </div>
-        );
-    }
+  displayName: 'TodoListControl',
+  render: function () {
+    return (
+      <div className="wrapper">
+        <ListTitle />
+        <ListContent />
+        <aside id="notice" className="notice hide"></aside>
+      </div>
+    );
+  }
 });
 
 module.exports = TodoListControl;

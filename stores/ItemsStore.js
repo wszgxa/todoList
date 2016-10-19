@@ -8,14 +8,14 @@ var ItemsStore = assign({}, EventEmitter.prototype, {
   },
   getList: function () {
     if (this.items.idMax !== 0) {
-        return this.items.itemsList;
+      return this.items.itemsList;
     } else if (window.localStorage.itemsList !== undefined) {
-        var itemsList = window.localStorage.itemsList,
-            itemsOb = JSON.parse(itemsList);
-        this._initItems(itemsOb);
-        return itemsOb.itemsList;
+      var itemsList = window.localStorage.itemsList,
+        itemsOb = JSON.parse(itemsList);
+      this._initItems(itemsOb);
+      return itemsOb.itemsList;
     } else {
-        return this.items.itemsList;
+      return this.items.itemsList;
     }
   },
   getIdMax: function () {
@@ -33,9 +33,9 @@ var ItemsStore = assign({}, EventEmitter.prototype, {
   },
   addItem: function (text) {
     var item = {
-        id: this.items.idMax,
-        content: text,
-        done: false
+      id: this.items.idMax,
+      content: text,
+      done: false
     };
     this.items.idMax++;
     this.items.itemsList.push(item);
@@ -44,9 +44,9 @@ var ItemsStore = assign({}, EventEmitter.prototype, {
   removeItem: function (id) {
     var itemsCashe = [];
     this.items.itemsList.forEach(function (vl, ky) {
-        if (vl.id != id) {
-            itemsCashe.push(vl);
-        }
+      if (vl.id != id) {
+        itemsCashe.push(vl);
+      }
     });
     this.items.itemsList = itemsCashe;
     window.localStorage.itemsList = JSON.stringify(this.items);
@@ -54,11 +54,11 @@ var ItemsStore = assign({}, EventEmitter.prototype, {
   changeItemStatus: function (id) {
     var itemsCashe = [];
     this.items.itemsList.forEach(function (vl, ky) {
-        if (vl.id != id) {
-            itemsCashe.push(vl);
-        } else {
-            itemsCashe.push({id:id,content:vl.content,status:!vl.status});
-        }
+      if (vl.id != id) {
+        itemsCashe.push(vl);
+      } else {
+        itemsCashe.push({id:id,content:vl.content,status:!vl.status});
+      }
     });
     this.items.itemsList = itemsCashe;
     window.localStorage.itemsList = JSON.stringify(this.items);
@@ -66,17 +66,15 @@ var ItemsStore = assign({}, EventEmitter.prototype, {
   changeItem: function (id,text) {
     var itemsCashe = [];
     this.items.itemsList.forEach(function (vl, ky) {
-        if (vl.id != id) {
-            itemsCashe.push(vl);
-        } else {
-            itemsCashe.push({id:id,content:text,status:vl.status});
-        }
+      if (vl.id != id) {
+        itemsCashe.push(vl);
+      } else {
+        itemsCashe.push({id:id,content:text,status:vl.status});
+      }
     });
     this.items.itemsList = itemsCashe;
     window.localStorage.itemsList = JSON.stringify(this.items);
   },
-
-
 });
 
 module.exports = ItemsStore;

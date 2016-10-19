@@ -4,13 +4,13 @@ var assign = require('object-assign');
 var TitleStore = assign({}, EventEmitter.prototype, {
   title: "",
   getTitle: function () {
-      if (this.title.length !== 0) {
-        return this.title;
-      } else if (window.localStorage.ListTitle === undefined) {
-          return false;
-      } else {
-        return window.localStorage.ListTitle;
-      }
+    if (this.title.length !== 0) {
+      return this.title;
+    } else if (window.localStorage.ListTitle === undefined) {
+      return false;
+    } else {
+      return window.localStorage.ListTitle;
+    }
   },
   setTitleHandler: function (text) {
     this.title = text;

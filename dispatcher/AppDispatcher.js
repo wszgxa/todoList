@@ -9,33 +9,33 @@ AppDispatcher.register(function (action) {
   switch(action.actionType) {
     // title 
     case 'INIT_TITLE':
-        TitleStore.setTitleHandler(action.text);
-        TitleStore.emitInit();
-        break;
+      TitleStore.setTitleHandler(action.text);
+      TitleStore.emitInit();
+      break;
 
     // status
     case 'STATUS_CHANGE':
-        StatusStore.setStatusHandler(action.text);
-        StatusStore.emitStatusChange();
-        break;
+      StatusStore.setStatusHandler(action.text);
+      StatusStore.emitStatusChange();
+      break;
 
     // items    
     case 'ADD_ITEM':
-        ItemsStore.addItem(action.text);
-        ItemsStore.emitListChange();
-        break;
+      ItemsStore.addItem(action.text);
+      ItemsStore.emitListChange();
+      break;
     case 'REMOVE_ITEM':
-        ItemsStore.removeItem(action.id);
-        ItemsStore.emitListChange();
-        break;
+      ItemsStore.removeItem(action.id);
+      ItemsStore.emitListChange();
+      break;
     case 'CHANGE_ITEM_STATUS':
-        ItemsStore.changeItemStatus(action.id);
-        ItemsStore.emitListChange();
-        break;
+      ItemsStore.changeItemStatus(action.id);
+      ItemsStore.emitListChange();
+      break;
     case 'CHANGE_ITEM':
-        ItemsStore.changeItem(action.id,action.text);
-        ItemsStore.emitListChange();
-        break;
+      ItemsStore.changeItem(action.id,action.text);
+      ItemsStore.emitListChange();
+      break;
     default:
       // no op
   }

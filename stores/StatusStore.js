@@ -4,7 +4,7 @@ var assign = require('object-assign');
 var StatusStore = assign({}, EventEmitter.prototype, {
   status: "hide",
   getStatus: function () {
-      return this.status;
+    return this.status;
   },
   setStatusHandler: function (text) {
     this.status = text;
